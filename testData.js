@@ -84,9 +84,9 @@ var events = [
 
 mongoose.connection.on('connected', () => {
   //Populate Database
-  User.remove({}).exec()
+  User.collection.remove({}).exec()
   .then(() => {
-    return Event.remove({}).exec();
+    return Event.collection.remove({}).exec();
   })
   .then(()=> {
     users = users.map(user => new User(user));
